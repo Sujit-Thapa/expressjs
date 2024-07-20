@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "1-intro.js",
   "dependencies": {
+    "express": "^4.19.2",
     "lodash": "^4.17.21"
   },
   "scripts": {
