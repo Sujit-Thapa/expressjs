@@ -2,7 +2,33 @@ const express = require('express')
 const app= express()
 const logger= require('./logger')
 const authorize = require('./authorize')
+const { people } = require('./data')
 //req => middleware => res
+
+//using middleware in the project to get data from the database (get)
+
+app.use(express.static('./methods-public'))
+app.get('/api/people', (req,res) => {
+  
+    res.status(200).json({success:true ,data: people})
+})
+
+
+//app.use(logger) //used for middlewares
+
+app.post('/login',(req ,res)=>
+    {
+        res.send('POST')
+    })
+    
+    
+app.listen(5000,() => {
+    console.log('server is listening on port 5000...')
+})
+
+
+
+
 
 /*app.get('/',logger,(req,res) => {
     
@@ -48,7 +74,7 @@ app.get('/about', (req,res) => {
 
 app.listen(5000,() => {
     console.log('server is listening on 5000')
-})*/
+})
 
 
 //using the middleware authorize
@@ -67,4 +93,4 @@ app.get('/about', (req,res) => {
 app.listen(5000,() => {
     console.log('server is listening on 5000')
 })
-
+*/
